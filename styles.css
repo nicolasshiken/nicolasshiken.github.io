@@ -486,21 +486,31 @@ footer .container {
   }
   section.about .banner-container {
     position: relative;
+    margin-top: 2rem;
   }
   section.about .banner-container .banner {
     padding: 0;
     min-height: 100%;
+    background-color: transparent;
+    -webkit-box-shadow: unset;
+            box-shadow: unset;
+    width: 100%;
   }
-  section.about .banner-container .container {
+  section.about .banner-container .banner .container {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
   }
   section.about .banner-container .banner-text {
-    margin: 25px 0;
     width: 100%;
+    padding: 1rem;
+    margin: 25px 0;
     text-align: center;
+    background-color: white;
+    -webkit-box-shadow: var(--box-shadow);
+            box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
   }
 }
 

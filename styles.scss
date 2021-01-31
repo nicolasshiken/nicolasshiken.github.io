@@ -417,20 +417,33 @@ footer {
   section.about {
     .banner-container {
       position: relative;
+      margin-top: 2rem;
+
       .banner {
         padding: 0;
 
         min-height: 100%;
-      }
 
-      .container {
-        flex-direction: column;
+        background-color: transparent;
+        box-shadow: unset;
+
+        width: 100%;
+
+        .container {
+          flex-direction: column;
+        }
       }
 
       .banner-text {
-        margin: 25px 0;
         width: 100%;
+        padding: 1rem;
+        margin: 25px 0;
+
         text-align: center;
+
+        background-color: white;
+        box-shadow: var(--box-shadow);
+        border-radius: var(--border-radius);
       }
     }
   }
