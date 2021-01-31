@@ -23,6 +23,7 @@ img {
 
   --clr-black: #333333;
   --clr-white: #eeeeee;
+  --clr-accent: #4e02de;
 
   --title-size: 68px;
   --logo-size: 35px;
@@ -124,15 +125,16 @@ a {
     justify-content: space-between;
     align-items: center;
 
+    height: 100%;
     width: 100%;
     margin-top: 2rem;
   }
 
   .card-icons-row {
-    margin: 1rem auto;
-    width: 70%;
+    margin: 1rem 0;
+    width: 100%;
 
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 
     display: flex;
@@ -140,10 +142,6 @@ a {
 
   .card-icon {
     height: 100px;
-
-    & + .card-icon {
-      margin-left: auto;
-    }
 
     &.mongo {
       width: 165px;
@@ -170,6 +168,8 @@ a {
       font-size: var(--logo-size);
       text-align: center;
 
+      color: var(--clr-accent);
+
       word-wrap: wrap;
     }
   }
@@ -187,7 +187,7 @@ a {
 
   .card-cta {
     padding: 0.5rem 2rem;
-    background-color: var(--clr-black);
+    background-color: var(--clr-accent);
     color: var(--clr-white);
     border-radius: 5px;
 
@@ -199,6 +199,14 @@ a {
     &:hover {
       transform: scale(1.1);
     }
+  }
+
+  .skill-bar {
+    width: 70%;
+    height: 10px;
+    background-color: var(--clr-accent);
+
+    margin-top: auto;
   }
 
   @media (max-width: 1100px) {
@@ -225,10 +233,13 @@ a {
 
   .contact-icon {
     height: 50px;
-    transition: transform 200ms;
+    width: 50px;
+    transition: transform 200ms ease-in-out, fill 200ms ease-in-out;
+    fill: var(--clr-black);
 
     &:hover {
       transform: scale(1.1);
+      fill: var(--clr-accent);
     }
   }
 }
@@ -264,10 +275,11 @@ nav {
     font-family: "Roboto Condensed", sans-serif;
     font-size: var(--logo-size);
 
-    transition: transform 200ms;
+    transition: transform 200ms ease-in-out, color 400ms ease-in-out;
 
     &:hover {
       transform: scale(1.1);
+      color: var(--clr-accent);
     }
   }
 
@@ -294,12 +306,12 @@ nav {
 
       &:before {
         content: "";
-        height: 2px;
+        height: 3px;
         position: absolute;
         top: 100%;
 
         width: 100%;
-        background-color: var(--clr-black);
+        background-color: var(--clr-accent);
 
         transform-origin: right;
         transform: scaleX(0);
@@ -422,7 +434,7 @@ footer {
       flex-direction: column;
 
       position: absolute;
-      top: 100%;
+      top: calc(100% + 1rem);
       right: 0;
 
       transform: scaleY(0);
@@ -434,8 +446,8 @@ footer {
         justify-content: flex-end;
 
         & + li {
-          margin-left: 0;
           margin-top: 1rem;
+          margin-left: 0;
         }
 
         a {
@@ -508,7 +520,7 @@ footer {
     display: flex;
     justify-content: space-between;
 
-    a {
+    .contact-icon {
       height: 40px;
     }
 
@@ -522,7 +534,7 @@ footer {
   .contact-icon-container {
     justify-content: space-around;
 
-    a {
+    .contact-icon {
       height: 30px;
     }
   }

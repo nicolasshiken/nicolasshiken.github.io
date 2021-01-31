@@ -20,6 +20,7 @@ img {
   scroll-behavior: smooth;
   --clr-black: #333333;
   --clr-white: #eeeeee;
+  --clr-accent: #4e02de;
   --title-size: 68px;
   --logo-size: 35px;
   --text-size: 30px;
@@ -145,16 +146,17 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  height: 100%;
   width: 100%;
   margin-top: 2rem;
 }
 
 .card .card-icons-row {
-  margin: 1rem auto;
-  width: 70%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  margin: 1rem 0;
+  width: 100%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -165,10 +167,6 @@ a {
 
 .card .card-icon {
   height: 100px;
-}
-
-.card .card-icon + .card-icon {
-  margin-left: auto;
 }
 
 .card .card-icon.mongo {
@@ -199,6 +197,7 @@ a {
   font-family: "Roboto Condensed", sans-serif;
   font-size: var(--logo-size);
   text-align: center;
+  color: var(--clr-accent);
   word-wrap: wrap;
 }
 
@@ -213,7 +212,7 @@ a {
 
 .card .card-cta {
   padding: 0.5rem 2rem;
-  background-color: var(--clr-black);
+  background-color: var(--clr-accent);
   color: var(--clr-white);
   border-radius: 5px;
   font-size: var(--text-size);
@@ -227,6 +226,13 @@ a {
 .card .card-cta:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+}
+
+.card .skill-bar {
+  width: 70%;
+  height: 10px;
+  background-color: var(--clr-accent);
+  margin-top: auto;
 }
 
 @media (max-width: 1100px) {
@@ -255,15 +261,18 @@ a {
 
 .contact-icon-container .contact-icon {
   height: 50px;
-  -webkit-transition: -webkit-transform 200ms;
-  transition: -webkit-transform 200ms;
-  transition: transform 200ms;
-  transition: transform 200ms, -webkit-transform 200ms;
+  width: 50px;
+  -webkit-transition: fill 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
+  transition: fill 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out, fill 200ms ease-in-out;
+  transition: transform 200ms ease-in-out, fill 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
+  fill: var(--clr-black);
 }
 
 .contact-icon-container .contact-icon:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+  fill: var(--clr-accent);
 }
 
 /*--------------- NAV ---------------*/
@@ -305,15 +314,16 @@ nav .nav-container {
 nav .logo {
   font-family: "Roboto Condensed", sans-serif;
   font-size: var(--logo-size);
-  -webkit-transition: -webkit-transform 200ms;
-  transition: -webkit-transform 200ms;
-  transition: transform 200ms;
-  transition: transform 200ms, -webkit-transform 200ms;
+  -webkit-transition: color 400ms ease-in-out, -webkit-transform 200ms ease-in-out;
+  transition: color 400ms ease-in-out, -webkit-transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out, color 400ms ease-in-out;
+  transition: transform 200ms ease-in-out, color 400ms ease-in-out, -webkit-transform 200ms ease-in-out;
 }
 
 nav .logo:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+  color: var(--clr-accent);
 }
 
 nav .nav-links-container {
@@ -347,11 +357,11 @@ nav .nav-links-container .nav-link:hover:before {
 
 nav .nav-links-container .nav-link:before {
   content: "";
-  height: 2px;
+  height: 3px;
   position: absolute;
   top: 100%;
   width: 100%;
-  background-color: var(--clr-black);
+  background-color: var(--clr-accent);
   -webkit-transform-origin: right;
           transform-origin: right;
   -webkit-transform: scaleX(0);
@@ -506,7 +516,7 @@ footer .container {
         -ms-flex-direction: column;
             flex-direction: column;
     position: absolute;
-    top: 100%;
+    top: calc(100% + 1rem);
     right: 0;
     -webkit-transform: scaleY(0);
             transform: scaleY(0);
@@ -526,8 +536,8 @@ footer .container {
             justify-content: flex-end;
   }
   nav .nav-links-container li + li {
-    margin-left: 0;
     margin-top: 1rem;
+    margin-left: 0;
   }
   nav .nav-links-container li a {
     text-align: right;
@@ -594,7 +604,7 @@ footer .container {
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
-  .contact-icon-container a {
+  .contact-icon-container .contact-icon {
     height: 40px;
   }
   .contact-icon-container a + a {
@@ -607,7 +617,7 @@ footer .container {
     -ms-flex-pack: distribute;
         justify-content: space-around;
   }
-  .contact-icon-container a {
+  .contact-icon-container .contact-icon {
     height: 30px;
   }
   footer {
