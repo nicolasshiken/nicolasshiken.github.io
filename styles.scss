@@ -225,20 +225,10 @@ a {
 
   .contact-icon {
     height: 50px;
-
-    &.hover {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-
-      opacity: 0;
-      transition: opacity 200ms;
-    }
+    transition: transform 200ms;
 
     &:hover {
-      opacity: 1;
+      transform: scale(1.1);
     }
   }
 }
