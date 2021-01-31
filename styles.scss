@@ -102,9 +102,8 @@ a {
 .card {
   width: 450px;
   max-width: 30%;
-  min-height: 600px;
 
-  padding: 1rem;
+  padding: 2rem 0;
 
   background-color: white;
   box-shadow: var(--box-shadow);
@@ -125,11 +124,16 @@ a {
     justify-content: space-between;
     align-items: center;
 
-    margin: auto 0;
+    width: 100%;
+    margin-top: 2rem;
   }
 
   .card-icons-row {
     margin: 1rem auto;
+    width: 70%;
+
+    justify-content: center;
+    align-items: center;
 
     display: flex;
   }
@@ -138,7 +142,7 @@ a {
     height: 100px;
 
     & + .card-icon {
-      margin-left: 3rem;
+      margin-left: auto;
     }
 
     &.mongo {
@@ -183,11 +187,18 @@ a {
 
   .card-cta {
     padding: 0.5rem 2rem;
-    background-color: yellow;
-    border-radius: var(--border-radius);
+    background-color: #9c00c8;
+    color: var(--clr-white);
+    border-radius: 5px;
 
     font-size: var(--text-size);
     margin-top: auto;
+
+    transition: transform 200ms;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   @media (max-width: 1100px) {
@@ -208,8 +219,27 @@ a {
     margin-left: 50px;
   }
 
-  img {
+  a {
+    position: relative;
+  }
+
+  .contact-icon {
     height: 50px;
+
+    &.hover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      opacity: 0;
+      transition: opacity 200ms;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 
@@ -243,6 +273,12 @@ nav {
   .logo {
     font-family: "Roboto Condensed", sans-serif;
     font-size: var(--logo-size);
+
+    transition: transform 200ms;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   .nav-links-container {
@@ -259,6 +295,26 @@ nav {
 
     .nav-link {
       font-size: var(--link-size);
+      position: relative;
+
+      &:hover:before {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+
+      &:before {
+        content: "";
+        height: 2px;
+        position: absolute;
+        top: 100%;
+
+        width: 100%;
+        background-color: var(--clr-black);
+
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform 200ms;
+      }
     }
   }
 }
@@ -273,7 +329,7 @@ nav {
   }
 
   .title {
-    margin-bottom: 50px;
+    margin-bottom: 25px;
   }
 }
 
@@ -287,7 +343,6 @@ section.about {
   justify-content: flex-start;
 
   .banner-container {
-    position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
@@ -298,13 +353,19 @@ section.about {
     align-items: center;
   }
 
+  .title {
+    margin-top: auto;
+  }
+
   .banner {
     display: flex;
     justify-content: center;
     align-items: center;
 
+    margin-bottom: auto;
+    margin-top: 2rem;
     padding: 3rem 0;
-    width: 100vw;
+    width: 100%;
 
     background-color: white;
     box-shadow: var(--box-shadow);
@@ -404,6 +465,7 @@ footer {
 
     .card {
       max-width: 100%;
+      width: 350px;
       min-height: 600px;
 
       margin: 50px 0;
@@ -415,28 +477,24 @@ footer {
   }
 
   section.about {
-    .banner-container {
-      position: relative;
-      margin-top: 2rem;
+    .banner {
+      padding: 0;
+      margin: 0;
 
-      .banner {
-        padding: 0;
+      min-height: 100%;
 
-        min-height: 100%;
+      background-color: transparent;
+      box-shadow: unset;
 
-        background-color: transparent;
-        box-shadow: unset;
+      width: 100%;
 
-        width: 100%;
-
-        .container {
-          flex-direction: column;
-        }
+      .container {
+        flex-direction: column;
       }
 
       .banner-text {
         width: 100%;
-        padding: 1rem;
+        padding: 1.5rem;
         margin: 25px 0;
 
         text-align: center;
@@ -471,11 +529,15 @@ footer {
 }
 
 @media (max-width: 450px) {
-  .card .card-icons-row {
-    justify-content: space-between;
+  .contact-icon-container {
+    justify-content: space-around;
 
-    .card-icon {
-      height: 75px;
+    a {
+      height: 30px;
     }
+  }
+
+  footer {
+    height: 200px;
   }
 }

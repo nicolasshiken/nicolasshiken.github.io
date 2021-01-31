@@ -109,8 +109,7 @@ a {
 .card {
   width: 450px;
   max-width: 30%;
-  min-height: 600px;
-  padding: 1rem;
+  padding: 2rem 0;
   background-color: white;
   -webkit-box-shadow: var(--box-shadow);
           box-shadow: var(--box-shadow);
@@ -146,11 +145,19 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: auto 0;
+  width: 100%;
+  margin-top: 2rem;
 }
 
 .card .card-icons-row {
   margin: 1rem auto;
+  width: 70%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -161,7 +168,7 @@ a {
 }
 
 .card .card-icon + .card-icon {
-  margin-left: 3rem;
+  margin-left: auto;
 }
 
 .card .card-icon.mongo {
@@ -206,10 +213,20 @@ a {
 
 .card .card-cta {
   padding: 0.5rem 2rem;
-  background-color: yellow;
-  border-radius: var(--border-radius);
+  background-color: #9c00c8;
+  color: var(--clr-white);
+  border-radius: 5px;
   font-size: var(--text-size);
   margin-top: auto;
+  -webkit-transition: -webkit-transform 200ms;
+  transition: -webkit-transform 200ms;
+  transition: transform 200ms;
+  transition: transform 200ms, -webkit-transform 200ms;
+}
+
+.card .card-cta:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 @media (max-width: 1100px) {
@@ -232,8 +249,27 @@ a {
   margin-left: 50px;
 }
 
-.contact-icon-container img {
+.contact-icon-container a {
+  position: relative;
+}
+
+.contact-icon-container .contact-icon {
   height: 50px;
+}
+
+.contact-icon-container .contact-icon.hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  -webkit-transition: opacity 200ms;
+  transition: opacity 200ms;
+}
+
+.contact-icon-container .contact-icon:hover {
+  opacity: 1;
 }
 
 /*--------------- NAV ---------------*/
@@ -275,6 +311,15 @@ nav .nav-container {
 nav .logo {
   font-family: "Roboto Condensed", sans-serif;
   font-size: var(--logo-size);
+  -webkit-transition: -webkit-transform 200ms;
+  transition: -webkit-transform 200ms;
+  transition: transform 200ms;
+  transition: transform 200ms, -webkit-transform 200ms;
+}
+
+nav .logo:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 nav .nav-links-container {
@@ -296,6 +341,31 @@ nav .nav-links-container li + li {
 
 nav .nav-links-container .nav-link {
   font-size: var(--link-size);
+  position: relative;
+}
+
+nav .nav-links-container .nav-link:hover:before {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+nav .nav-links-container .nav-link:before {
+  content: "";
+  height: 2px;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  background-color: var(--clr-black);
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: -webkit-transform 200ms;
+  transition: -webkit-transform 200ms;
+  transition: transform 200ms;
+  transition: transform 200ms, -webkit-transform 200ms;
 }
 
 /*--------------- LANDING SECTION ---------------*/
@@ -313,7 +383,7 @@ nav .nav-links-container .nav-link {
 }
 
 .landing-page .title {
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 
 /*--------------- ABOUT SECTION ---------------*/
@@ -333,7 +403,6 @@ section.about {
 }
 
 section.about .banner-container {
-  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
@@ -349,6 +418,10 @@ section.about .banner-container {
           align-items: center;
 }
 
+section.about .title {
+  margin-top: auto;
+}
+
 section.about .banner {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -359,8 +432,10 @@ section.about .banner {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: auto;
+  margin-top: 2rem;
   padding: 3rem 0;
-  width: 100vw;
+  width: 100%;
   background-color: white;
   -webkit-box-shadow: var(--box-shadow);
           box-shadow: var(--box-shadow);
@@ -478,33 +553,31 @@ footer .container {
   }
   .card-container .card {
     max-width: 100%;
+    width: 350px;
     min-height: 600px;
     margin: 50px 0;
   }
   .card-container .card .card-icon {
     height: 100px;
   }
-  section.about .banner-container {
-    position: relative;
-    margin-top: 2rem;
-  }
-  section.about .banner-container .banner {
+  section.about .banner {
     padding: 0;
+    margin: 0;
     min-height: 100%;
     background-color: transparent;
     -webkit-box-shadow: unset;
             box-shadow: unset;
     width: 100%;
   }
-  section.about .banner-container .banner .container {
+  section.about .banner .container {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  section.about .banner-container .banner-text {
+  section.about .banner .banner-text {
     width: 100%;
-    padding: 1rem;
+    padding: 1.5rem;
     margin: 25px 0;
     text-align: center;
     background-color: white;
@@ -536,13 +609,15 @@ footer .container {
 }
 
 @media (max-width: 450px) {
-  .card .card-icons-row {
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+  .contact-icon-container {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
   }
-  .card .card-icons-row .card-icon {
-    height: 75px;
+  .contact-icon-container a {
+    height: 30px;
+  }
+  footer {
+    height: 200px;
   }
 }
 /*# sourceMappingURL=styles.css.map */
