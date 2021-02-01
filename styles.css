@@ -636,6 +636,9 @@ footer .container {
 }
 
 @media (max-width: 450px) {
+  nav .logo-container svg {
+    height: 60px;
+  }
   nav .logo {
     font-size: 30px;
   }
